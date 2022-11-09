@@ -1,2 +1,1 @@
-# Generador-Profesional-de-README
-Repositorio para el Generador Profesional de README
+# Código de inicio para Generador profesional de README
