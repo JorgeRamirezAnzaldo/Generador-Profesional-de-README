@@ -16,27 +16,27 @@ const questions = [
         message: "¿Cuál es el título de tu aplicación?",
     },
     {
-        type: "input",
+        type: "editor",
         name: "Description",
         message: "¿Cuál es la descripción de tu aplicación?",
     },
     {
-        type: "input",
+        type: "editor",
         name: "Installation",
         message: "¿Cuáles son las instrucciones de instalación de tu aplicación?",
     },
     {
-        type: "input",
+        type: "editor",
         name: "Usage",
         message: "¿Cuál es la información de uso de tu aplicación",
     },
     {
-        type: "input",
+        type: "editor",
         name: "Contributing",
         message: "¿Cuáles son las instrucciones de contribución para tu aplicación?",
     },
     {
-        type: "input",
+        type: "editor",
         name: "Test",
         message: "¿Cuáles son las instrucciones para realizar pruebas de tu aplicación?",
     },
