@@ -13,49 +13,49 @@ const questions = [
     {
         type: "input",
         name: "Title",
-        message: "¿Cuál es el título de tu aplicación?",
+        message: "Which is the title of your application?",
     },
     {
         type: "editor",
         name: "Description",
-        message: "¿Cuál es la descripción de tu aplicación?",
+        message: "Which is the description of your application?",
     },
     {
         type: "editor",
         name: "Installation",
-        message: "¿Cuáles son las instrucciones de instalación de tu aplicación?",
+        message: "Which are the installation instructions for your application?",
     },
     {
         type: "editor",
         name: "Usage",
-        message: "¿Cuál es la información de uso de tu aplicación",
+        message: "Which is the usage information for your application?",
     },
     {
         type: "editor",
         name: "Contributing",
-        message: "¿Cuáles son las instrucciones de contribución para tu aplicación?",
+        message: "Which are the contribution instructions for your application?",
     },
     {
         type: "editor",
         name: "Test",
-        message: "¿Cuáles son las instrucciones para realizar pruebas de tu aplicación?",
+        message: "Which are the instructions to test your application?",
     },
     {
         type: "list",
         name: "License",
-        message: "Escoge una licencia para tu aplicación",
+        message: "Choose a license for your application",
         choices: array,
         loop: false,
     },
     {
         type: "input",
         name: "GitHub",
-        message: "¿Cuál es tu usuario de GitHub?",
+        message: "Which is your GitHub user?",
     },
     {
         type: "input",
         name: "Mail",
-        message: "¿Cuál es tu correro electrónico?",
+        message: "Which is your email address?",
     },
 
 ];
@@ -80,7 +80,7 @@ function writeToFile(fileName, data) {
 function init() {
     inq.prompt(questions)
     .then((answers) => {
-        writeToFile("ReadMe.md", answers);
+        writeToFile("README.md", answers);
     });
 }
 

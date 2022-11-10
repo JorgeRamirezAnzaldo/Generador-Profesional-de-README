@@ -37,7 +37,7 @@ function renderLicenseLink(i) {
 // Si no hay licencia, devuelva una cadena vacía
 function renderLicenseSection(license, link) {
   if (link !== ""){
-    let licsection = `Esta aplicación se encuentra bajo la licencia ${license}. Para conocer más detalles sobre esta licencia entra al siguiente link:  
+    let licsection = `This application was created under license ${license}. To get more details about this license follow this link:  
     * [Link a Licencia](${link})`
     return licsection;
   } else {
@@ -57,39 +57,39 @@ function generateMarkdown(data, i) {
   const gittext = "https://github.com/" + data.GitHub;
   return `# ${data.Title} ${badge}     
 
-## Tabla de Contenido  
-* [Descripción](#descripción-de-la-aplicación)
-* [Instrucciones de instalación](#instrucciones-de-instalación)
-* [Información de uso de la aplicación](#información-de-uso-de-la-aplicación)
-* [Instrucciones de contribución](#instrucciones-de-constribución)
-* [Instrucciones para realizar pruebas](#instrucciones-para-realizar-pruebas)
-* [Licencia](#licencia)
-* [Preguntas](#preguntas)
+## Table of Contents  
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-## Descripción de la aplicación  
+## Description  
 ${data.Description}  
 
-## Instrucciones de instalación  
+## Installation 
 ${data.Installation}  
 
-## Información de uso de la aplicación  
+## Usage  
 ${data.Usage}  
 
-## Instrucciones de constribución  
-${data.Contributing}  
-
-## Instrucciones para realizar pruebas  
-${data.Test}  
-
-## Licencia 
+## License
 ${lictext}  
 
-## Preguntas  
-* Si tienes dudas, puedes encontrar más información al acceder a mi perfil de Github mediante el siguiente Link: [${data.GitHub}](${gittext}). 
-* Para preguntas adicionales puedes contactarme por medio de la siguiente dirección de correo electrónico: ${data.Mail}.
-  * En el asunto del correo coloca el nombre de la aplicación sobre la que tienes preguntas.
-  * Por favor coloca preguntas puntuales e incluye cualquier ejemplo o imagen que ayude a comprender tus dudas para ofrecerte una mejor respuesta.
-  * Considera que es posible que tarde un par de días en contestar.
+## Contributing 
+${data.Contributing}  
+
+## Tests  
+${data.Test}  
+
+## Questions
+* If you any doubts or questions, you can find more information by accessing my GitHub profile using the following link: [${data.GitHub}](${gittext}).
+* For additional questions, you can contact me by using the following email address: ${data.Mail}. Please consider the following:
+  * Place the application name for which you have questions in the email subject.
+  * Place your questions as accurate and descriptive as you can and include examples or images that could help understand your doubts to offer you better answers.
+  * Consider that it can take a couple of days for me to answer your email.
 `;
 }
 
