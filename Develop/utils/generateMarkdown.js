@@ -41,7 +41,7 @@ function generateMarkdown(data, i) {
   const gittext = "https://github.com/" + data.GitHub;
   return `# ${data.Title} ![License](${badge})     
 
-## Table of Contents  
+## Tabla de Contenido  
 * [Descripción](#descripción-de-la-aplicación)
 * [Instrucciones de instalación](#instrucciones-de-instalación)
 * [Información de uso de la aplicación](#información-de-uso-de-la-aplicación)
