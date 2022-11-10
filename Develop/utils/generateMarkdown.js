@@ -38,7 +38,7 @@ function renderLicenseLink(i) {
 function renderLicenseSection(license, link) {
   if (link !== ""){
     let licsection = `This application was created under license ${license}. To get more details about this license follow this link:  
-    * [Link a Licencia](${link})`
+    * [Link to License](${link})`
     return licsection;
   } else {
     return "";
