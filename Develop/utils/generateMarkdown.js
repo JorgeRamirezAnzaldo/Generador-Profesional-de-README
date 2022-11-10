@@ -1,21 +1,36 @@
-// TODO: Crear una función que devuelva una credencial de licencia según la licencia en la que se pasa
-// Si no hay licencia, devuelva una cadena vacía
-function renderLicenseBadge(license) {}
 
-// TODO: Crear una función que devuelva el enlace de licencia
-// Si no hay licencia, devuelva una cadena vacía
-function renderLicenseLink(license) {}
-
-// TODO: Crear una función que devuelva la sección de licencia de README
-// Si no hay licencia, devuelva una cadena vacía
-function renderLicenseSection(license) {}
 
 // TODO: Crear una función para generar un markdown para README
-function generateMarkdown(data) {
-  renderLicenseBadge(data.license);
-  renderLicenseLink(data.License);
-  renderLicenseSection();
-  return `# ${data.title}
+function generateMarkdown(data, i) {
+  
+  return `# ${data.Title}     
+
+## Table of Contents  
+* [Descripción](#descripción-de-la-aplicación)
+* [Instrucciones de instalación](#instrucciones-de-instalación)
+* [Información de uso de la aplicación](#información-de-uso-de-la-aplicación)
+* [Instrucciones de contribución](#instrucciones-de-constribución)
+* [Instrucciones para realizar pruebas](#instrucciones-para-realizar-pruebas)
+* [Licencia](#licencia)
+* [Preguntas](#preguntas)
+
+## Descripción de la aplicación  
+${data.Description}  
+
+## Instrucciones de instalación  
+${data.Installation}  
+
+## Información de uso de la aplicación  
+${data.Usage}  
+
+## Instrucciones de constribución  
+${data.Contributing}  
+
+## Instrucciones para realizar pruebas  
+${data.Test}  
+
+## Licencia 
+ 
 
 `;
 }
