@@ -6,7 +6,7 @@ const array = ["Unlicense", "ISC", "MIT",  "MPL 2.0", "Apache 2.0",
 "Boost 1.0", "AGPL v3", "GPL v3", "GPL v2", "LGPL v3", "FDL v1.3",
 "BSD 3-Clause", "BSD 2-Clause", "EPL 1.0", "IPL 1.0", "ODC BY", "ODbL",
 "PDDL", "Artistic 2.0", "OFL 1.1",
-"WTFPL", "Zlib"];
+"WTFPL", "Zlib", ""];
 
 // TODO: Crear una serie de preguntas para la entrada de usuario
 const questions = [
@@ -63,7 +63,10 @@ const questions = [
 // TODO: Crear una función para escribir el archivo README
 function writeToFile(fileName, data) {
     for (var i = 0; i < array.length; i++){
-        if (array[i].startsWith(data.License)){
+        if (data.License === ""){
+            i = array.length - 1;
+            break;
+        } else if (array[i].startsWith(data.License)){
             break;
         }
     }
@@ -77,7 +80,6 @@ function writeToFile(fileName, data) {
 function init() {
     inq.prompt(questions)
     .then((answers) => {
-        console.log(answers);
         writeToFile("ReadMe.md", answers);
     });
 }

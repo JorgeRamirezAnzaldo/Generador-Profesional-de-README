@@ -1,10 +1,14 @@
 // TODO: Crear una función que devuelva una credencial de licencia según la licencia en la que se pasa
 // Si no hay licencia, devuelva una cadena vacía
 function renderLicenseBadge(license) {
-  let licensemod = license.replace(" ", "_");
-  licensemod = licensemod.replace("-", "--");
-  let licenseimg = "https://img.shields.io/badge/License-" + licensemod + "-blue.svg";
-  return licenseimg;
+  if (license !== ""){
+    let licensemod = license.replace(" ", "_");
+    licensemod = licensemod.replace("-", "--");
+    let licenseimg = "https://img.shields.io/badge/License-" + licensemod + "-blue.svg";
+    return licenseimg;
+  } else {
+    return "";
+  }
 }
 
 // TODO: Crear una función que devuelva el enlace de licencia
@@ -16,30 +20,42 @@ function renderLicenseLink(i) {
   "www.gnu.org/licenses/lgpl-3.0", "www.gnu.org/licenses/fdl-1.3", "opensource.org/licenses/BSD-3-Clause", "opensource.org/licenses/BSD-2-Clause", 
   "opensource.org/licenses/EPL-1.0", "opensource.org/licenses/IPL-1.0", "opendatacommons.org/licenses/by/", "opendatacommons.org/licenses/odbl/",
   "opendatacommons.org/licenses/pddl/", "https://opensource.org/licenses/Artistic-2.0", "opensource.org/licenses/OFL-1.1",  
-  "www.wtfpl.net/about/", "opensource.org/licenses/Zlib"
+  "www.wtfpl.net/about/", "opensource.org/licenses/Zlib", ""
 ];
-
   let url = licenseurl[i];
-  let completeurl = "https://" + url;
-  return completeurl;
+  if (url !== ""){
+    let completeurl = "https://" + url;
+    return completeurl;
+  } else {
+    return "";
+  }
+  
 
 }
 
 // TODO: Crear una función que devuelva la sección de licencia de README
 // Si no hay licencia, devuelva una cadena vacía
 function renderLicenseSection(license, link) {
-  let licsection = `Esta aplicación se encuentra bajo la licencia ${license}. Para conocer más detalles sobre esta licencia entra al siguiente link:  
-  * [Link a Licencia](${link})`
-  return licsection;
+  if (link !== ""){
+    let licsection = `Esta aplicación se encuentra bajo la licencia ${license}. Para conocer más detalles sobre esta licencia entra al siguiente link:  
+    * [Link a Licencia](${link})`
+    return licsection;
+  } else {
+    return "";
+  }
+  
 }
 
 // TODO: Crear una función para generar un markdown para README
 function generateMarkdown(data, i) {
-  const badge = renderLicenseBadge(data.License);
+  let badge = "";
+  if (data.License !== ""){
+    badge = `![License](${renderLicenseBadge(data.License)})`;
+  }
   const link = renderLicenseLink(i);
   const lictext = renderLicenseSection(data.License, link);
   const gittext = "https://github.com/" + data.GitHub;
-  return `# ${data.Title} ![License](${badge})     
+  return `# ${data.Title} ${badge}     
 
 ## Tabla de Contenido  
 * [Descripción](#descripción-de-la-aplicación)
