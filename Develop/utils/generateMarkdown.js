@@ -1,19 +1,18 @@
-// TODO: Crear una función que devuelva una credencial de licencia según la licencia en la que se pasa
-// Si no hay licencia, devuelva una cadena vacía
+//Function to create/render the license badge based on the license
 function renderLicenseBadge(license) {
-  if (license !== ""){
-    let licensemod = license.replace(" ", "_");
-    licensemod = licensemod.replace("-", "--");
-    let licenseimg = "https://img.shields.io/badge/License-" + licensemod + "-blue.svg";
-    return licenseimg;
-  } else {
-    return "";
+  if (license !== ""){ //If license is not empty
+    let licensemod = license.replace(" ", "_"); //Replace spaces in license text with underscores
+    licensemod = licensemod.replace("-", "--"); //Replace - with -- in license text
+    let licenseimg = "https://img.shields.io/badge/License-" + licensemod + "-blue.svg"; //Create link for the badge image
+    return licenseimg; //Return link for the badge image
+  } else { //If license is empty
+    return ""; //Return an empty string
   }
 }
 
-// TODO: Crear una función que devuelva el enlace de licencia
-// Si no hay licencia, devuelva una cadena vacía
+//Function to return the license link
 function renderLicenseLink(i) {
+  //Array with the license urls
   const licenseurl = ["unlicense.org/", "opensource.org/licenses/ISC", "opensource.org/licenses/MIT",
   "opensource.org/licenses/MPL-2.0",  "opensource.org/licenses/Apache-2.0", "www.boost.org/LICENSE_1_0.txt",
   "www.gnu.org/licenses/agpl-3.0", "www.gnu.org/licenses/gpl-3.0", "www.gnu.org/licenses/old-licenses/gpl-2.0.en.html",
@@ -22,39 +21,40 @@ function renderLicenseLink(i) {
   "opendatacommons.org/licenses/pddl/", "https://opensource.org/licenses/Artistic-2.0", "opensource.org/licenses/OFL-1.1",  
   "www.wtfpl.net/about/", "opensource.org/licenses/Zlib", ""
 ];
-  let url = licenseurl[i];
-  if (url !== ""){
-    let completeurl = "https://" + url;
-    return completeurl;
-  } else {
-    return "";
+  let url = licenseurl[i]; //Use the index of the selected license to extract the license url
+  if (url !== ""){ //If the url is not empty
+    let completeurl = "https://" + url; //Modify the license url
+    return completeurl; //Return the complete license url
+  } else { //If the url is empty
+    return ""; //Return an empty string
   }
   
 
 }
 
-// TODO: Crear una función que devuelva la sección de licencia de README
-// Si no hay licencia, devuelva una cadena vacía
+//Function to return the license section of the README
 function renderLicenseSection(license, link) {
-  if (link !== ""){
+  if (link !== ""){ //If the license url is not empty
+    //Create the license section including the license name and the license url
     let licsection = `This application was created under license ${license}. To get more details about this license follow this link:  
     * [Link to License](${link})`
-    return licsection;
-  } else {
-    return "";
+    return licsection; //Return the license section of the README
+  } else { //If the license url is empty
+    return ""; //Return an empty string
   }
   
 }
 
-// TODO: Crear una función para generar un markdown para README
+//Function to create a markdown
 function generateMarkdown(data, i) {
-  let badge = "";
-  if (data.License !== ""){
-    badge = `![License](${renderLicenseBadge(data.License)})`;
+  let badge = ""; //Initialize the badge section as an empty string
+  if (data.License !== ""){ //If the user selected a license other than the empty one
+    badge = `![License](${renderLicenseBadge(data.License)})`; //Create and store the complete section for the license badge calling the function to render the license badge
   }
-  const link = renderLicenseLink(i);
-  const lictext = renderLicenseSection(data.License, link);
-  const gittext = "https://github.com/" + data.GitHub;
+  const link = renderLicenseLink(i); //Call the function to render the license link and store the link
+  const lictext = renderLicenseSection(data.License, link); //Call the function to render and store the license section
+  const gittext = "https://github.com/" + data.GitHub; //Create the link to the user GitHub
+  //Return complete markdown text
   return `# ${data.Title} ${badge}     
 
 ## Table of Contents  
@@ -93,4 +93,5 @@ ${data.Test}
 `;
 }
 
+//Export generateMarkdown function to make it available
 module.exports = generateMarkdown;
